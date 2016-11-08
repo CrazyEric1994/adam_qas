@@ -1,10 +1,10 @@
-#---------------------------Imports---------------------------------------
+#---------------------------Imports-------------------------------------------
 from nltk.stem import *
 from nltk.stem.snowball import SnowballStemmer
 import nltk
 import sys
 import os
-#----------------------------------Class for TF- IDF --------------------
+#----------------------------------Class for TF- IDF -------------------------
 class tfidf:
   def __init__(self):
     self.weighted = False
