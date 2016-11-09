@@ -4,7 +4,7 @@ import nltk
 from nltk import tokenize
 import re
 #-----------------Read a text file----------------------------------------------------------------------------------------------------
-fp = open("elon.txt","r")
+fp = open("/home/amit/IdeaProjects/adam_qas/corpora/elon.txt","r")
 
 #---------------------Essential starters and suffixes-----------------------------------------------------------------------------
 caps = "([A-Z])"
@@ -48,7 +48,7 @@ s= fp.read()
 t = split_into_sentences(s)
 for x in range(len(t)):
 	
-	print t[x]
-	print "\n"
+	print(t[x])
+	print("\n")
 
 

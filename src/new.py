@@ -60,17 +60,17 @@ key = []
 #--------------------Ask Question-----------------------------------------------------------------------------------
 #------------------this is temporary cause we need keywords----------------------------------------------
 
-q = raw_input("Q.").strip()
+q = input("Q.").strip()
 q=q.lower()
 q_tok = nltk.word_tokenize(q)
-print q_tok
+print(q_tok)
 #---------------------------------------------Object of class-----------------------------------------------------
 obj = tfidf()	
 	
 for i in range(0,doc_len):
-	file_content[i] = open("Corpus/"+documents[i]).read()
+	file_content[i] = open("/home/amit/IdeaProjects/adam_qas/corpora/"+documents[i]).read()
 	file_content[i] = file_content[i].lower()
 	tokens[i] = nltk.word_tokenize(file_content[i])
 	obj.addDocument(titles[i],tokens[i])
-print obj.similarities (q_tok)
+print(obj.similarities (q_tok))
 
