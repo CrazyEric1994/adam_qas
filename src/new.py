@@ -1,8 +1,7 @@
 #------------------------Relevant Document Retrieval -------------------------
 #---------------------------Imports---------------------------------------
 import nltk
-import sys
-import os
+from nltk import word_tokenize
 #----------------------------------Class for TF- IDF --------------------
 class tfidf:
   def __init__(self):
@@ -65,12 +64,12 @@ q=q.lower()
 q_tok = nltk.word_tokenize(q)
 print(q_tok)
 #---------------------------------------------Object of class-----------------------------------------------------
-obj = tfidf()	
-	
+obj = tfidf()
+
 for i in range(0,doc_len):
 	file_content[i] = open("/home/amit/IdeaProjects/adam_qas/corpora/"+documents[i]).read()
 	file_content[i] = file_content[i].lower()
 	tokens[i] = nltk.word_tokenize(file_content[i])
 	obj.addDocument(titles[i],tokens[i])
-print(obj.similarities (q_tok))
+print(obj.similarities(q_tok))
 
