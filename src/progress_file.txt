@@ -1,0 +1,15 @@
+ Tasks :
+ 1) Get the relevant document from corpus in response
+ to user query
+    Algorithm:                                             Status
+    based on Tf-Idf scores >>>                             Completed
+    based on Synsets >>>                                   Pending
+
+ 2) Apply K-means algorithm on corpus to cluster
+ documents into related groups
+    Take set of documents >>>                              Completed
+    Tokenize them and remove stopwords  >>>                Completed
+    Generate document vectors  >>>                         Ongoing
+        Construct a Tf-Idf matrix
+    Implement a simple K-means >>>                         Completed
+    Send the document matrix to K-means for clusering >>>  pending

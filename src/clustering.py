@@ -1,25 +1,45 @@
-#-----------------------Imports---------------------------------
-import numpy as np
+import math
+from textblob import TextBlob as tb
 import nltk
-import re
-import os
-import codecs
-from sklearn import feature_extraction
-import sys
-import wikipedia
-potus = wikipedia.page("donald trump")
-obj = potus.content
+from nltk import word_tokenize
+from nltk.corpus import stopwords
 
-def create():
-    print("creating new  file")
-    name=input ("enter the name of file:")
-    try:
-        name=name+"."+"txt"
-        file=open(name,'a')
-        file.write(obj)
-        file.close()
-    except:
-        print("error occured")
-        sys.exit(0)
+def tf(word, blob):
+    return blob.words.count(word) / len(blob.words)
 
-create()
+def n_containing(word, bloblist):
+    return sum(1 for blob in bloblist if word in blob.words)
+
+def idf(word, bloblist):
+    return math.log(len(bloblist) / (1 + n_containing(word, bloblist)))
+
+def tfidf(word, blob, bloblist):
+    return tf(word, blob) * idf(word, bloblist)
+document1 = open("/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/a1.txt","r").read()
+document1 = document1.lower()
+doc1_tok = nltk.word_tokenize(document1)
+#print(doc1_tok)
+filtered_word_list = doc1_tok[:]
+for word in doc1_tok:
+    if word in stopwords.words('english'):
+        filtered_word_list.remove(word)
+print(filtered_word_list)
+newdoc_1 = ' '.join(filtered_word_list)
+print(newdoc_1)
+
+document1 = tb(newdoc_1)
+'''
+document2 = tb(open("/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/a2.txt","r").read())
+document2 = document2.lower()
+document3 = tb(open("/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/a3.txt","r").read())
+
+document3 = document3.lower()
+'''
+bloblist = [document1]
+
+for i, blob in enumerate(bloblist):
+    print("Top words in document {}".format(i + 1))
+    scores = {word: tfidf(word, blob, bloblist) for word in blob.words}
+    sorted_words = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    for word, score in sorted_words[:10]:
+        print("\tWord: {}, TF-IDF: {}".format(word, round(score, 5)))
