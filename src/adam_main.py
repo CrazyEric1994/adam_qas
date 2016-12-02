@@ -44,7 +44,7 @@ def to_nltk_tree_dep(node):
         return tok_format_dep(node)
 
 
-input_question = "How can there be any sin in sincere? Where is the good in goodbye Mr. Obama?"
+input_question = "How can there be any sin in sincere? Where is the good in goodbye?"
 
 start_time = time.time()
 
