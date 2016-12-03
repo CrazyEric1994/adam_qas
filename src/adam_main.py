@@ -1,6 +1,7 @@
 import spacy
 import time
 from nltk import Tree
+from spacy.symbols import nsubj, NOUN, PROPN
 
 
 def get_pos_tags(sent):
@@ -43,8 +44,8 @@ def to_nltk_tree_dep(node):
     else:
         return tok_format_dep(node)
 
-
-input_question = "How can there be any sin in sincere? Where is the good in goodbye?"
+# input_question = "How can there be any sin in sincere? Where is the good in goodbye?"
+input_question = "What is the full form of .com?"
 
 start_time = time.time()
 
@@ -65,8 +66,12 @@ for sent in en_doc.sents:
     dependency_set = get_dependency(sent)
     print(dependency_set)
 
-    # to_nltk_tree_dep(sent.root).pretty_print()            # To print the Dependency Tree
+    to_nltk_tree_dep(sent.root).pretty_print()            # To print the Dependency Tree
 
+"""for sent in en_doc.sents:
+    for token in sent:
+        if token.dep == nsubj and (token.pos == NOUN or token.pos == PROPN):
+            print(token.text)"""
 
 end_time = time.time()
 print("Time: ", end_time - start_time)
