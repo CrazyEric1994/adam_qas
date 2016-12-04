@@ -68,10 +68,15 @@ for sent in en_doc.sents:
 
     to_nltk_tree_dep(sent.root).pretty_print()            # To print the Dependency Tree
 
-"""for sent in en_doc.sents:
+for sent in en_doc.sents:
     for token in sent:
         if token.dep == nsubj and (token.pos == NOUN or token.pos == PROPN):
-            print(token.text)"""
+            print(token.head, ">", token.text)
+            print(list(token.children))
+            print(list(token.conjuncts))
+            print(list(token.subtree))
+            print(list(token.ancestors))
+
 
 end_time = time.time()
 print("Time: ", end_time - start_time)
