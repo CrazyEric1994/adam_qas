@@ -15,11 +15,18 @@ def idf(word, bloblist):
 
 def tfidf(word, blob, bloblist):
     return tf(word, blob) * idf(word, bloblist)
+
+documents = []
+path = "home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/"
+
 document1 = open("/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/a1.txt","r").read()
 document1 = document1.lower()
 doc1_tok = nltk.word_tokenize(document1)
+
+
 #print(doc1_tok)
 filtered_word_list = doc1_tok[:]
+
 for word in doc1_tok:
     if word in stopwords.words('english'):
         filtered_word_list.remove(word)
@@ -28,13 +35,7 @@ newdoc_1 = ' '.join(filtered_word_list)
 print(newdoc_1)
 
 document1 = tb(newdoc_1)
-'''
-document2 = tb(open("/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/a2.txt","r").read())
-document2 = document2.lower()
-document3 = tb(open("/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/a3.txt","r").read())
 
-document3 = document3.lower()
-'''
 bloblist = [document1]
 
 for i, blob in enumerate(bloblist):

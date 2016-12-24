@@ -72,4 +72,3 @@ for i in range(0,doc_len):
 	tokens[i] = nltk.word_tokenize(file_content[i])
 	obj.addDocument(titles[i],tokens[i])
 print(obj.similarities(q_tok))
-
