@@ -3,12 +3,12 @@ import wikipedia
 
 def create():
     print("creating new  file")
-    name=input ("enter the name of file:")
-    potus = wikipedia.page(name)
-    obj = potus.content
+    name = input("enter the name of file:")
+    page = wikipedia.page(name)
+    obj = page.content
     try:
-        name=name+"."+"txt"
-        file=open(name,'a')
+        name = name+"."+"txt"
+        file = open(name,'a')
         file.write(obj)
         file.close()
     except:
