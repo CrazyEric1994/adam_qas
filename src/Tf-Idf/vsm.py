@@ -10,7 +10,9 @@ from collections import Counter
 
 start_time = time.time()
 documents = []
-path = '/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/'
+corpus_path = os.path.dirname(os.path.realpath(__file__))
+corpus_path = corpus_path.replace("/src/Tf-Idf", "/corpora/")
+path = corpus_path+'clustering_docs/'
 for filename in os.listdir(path):
     documents.append(filename)
 for i in documents:
