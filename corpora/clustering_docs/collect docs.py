@@ -1,5 +1,6 @@
 import sys
 import wikipedia
+import time
 
 def create():
     print("creating new  file")
@@ -14,5 +15,7 @@ def create():
     except:
         print("error occured")
         sys.exit(0)
-
+start_time = time.time()
 create()
+end_time = time.time()
+print(end_time - start_time)
