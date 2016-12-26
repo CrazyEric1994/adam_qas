@@ -9,6 +9,15 @@ fp_train = open(path+"train_5500_headword.txt", "w")
 
 en_nlp = spacy.load('en')
 
+
+"""
+
+WH Type
+Root > POS
+
+
+"""
+
 for record in fp:
     training_data = record.split(" ", 1)
     if training_data[1].startswith("What"):
