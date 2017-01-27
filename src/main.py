@@ -5,6 +5,8 @@ import nltk
 import sys
 import os
 #----------------------------------Class for TF- IDF -------------------------
+
+
 class tfidf:
   def __init__(self):
     self.weighted = False

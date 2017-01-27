@@ -48,8 +48,7 @@ t=[]
 s= fp.read()
 t = split_into_sentences(s)
 for x in range(len(t)):
-	
-	print(t[x])
-	print("\n")
+    print(t[x])
+    print("\n")
 
 
