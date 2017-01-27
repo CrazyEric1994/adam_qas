@@ -124,11 +124,13 @@ print(categories)
 
 dataset = fetch_20newsgroups(subset='all', categories=categories,
                              shuffle=True, random_state=42)
-
+print('------------------------------------------------------------------------------', dataset, '-------------'
+                                                                                                 '-------------------------------------------------------')
+'''
 print("%d documents" % len(dataset.data))
 print("%d categories" % len(dataset.target_names))
 print()
-
+'''
 labels = dataset.target
 true_k = np.unique(labels).shape[0]
 
