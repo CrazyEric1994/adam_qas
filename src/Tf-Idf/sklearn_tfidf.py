@@ -1,4 +1,4 @@
-import time
+
 import os
 import nltk
 import sklearn
@@ -7,7 +7,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 
 
-start_time = time.time()
 documents = []
 corpus_path = os.path.dirname(os.path.realpath(__file__))
 corpus_path = corpus_path.replace("/src/Tf-Idf", "/corpora/")
@@ -23,6 +22,6 @@ for i in documents:
         #print(text)
         #text = text.split(".")
         #print(text)
-        new_term_freq_matrix = TfidfVectorizer.transform(raw_documents=lowers, copy=True)
-        print (TfidfVectorizer.vocabulary_)
-        print (new_term_freq_matrix.todense())
+        new_term_freq_matrix = TfidfVectorizer.transform(text, copy=True)
+        print(TfidfVectorizer.vocabulary_)
+        print(new_term_freq_matrix.todense())
