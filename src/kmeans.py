@@ -1,6 +1,7 @@
 import nltk
 import string
 from nltk.corpus import stopwords
+import os
 from nltk.stem.snowball import SnowballStemmer
 from collections import Counter
 
@@ -28,8 +29,10 @@ def stemming_text():
         stemmed.append(stemmer.stem(item))
     return stemmed
 
+path = os.path.dirname(os.path.realpath(__file__))
+path = path.replace("/src", "/corpora/clustering_docs/a1.txt")
+
 print("----------------------------------------Stage 1 After Tokenising----------------------------------------------")
-path = '/home/amit/IdeaProjects/adam_qas/corpora/barack.txt'
 tokens = get_tokens(path)
 count = Counter(tokens)
 print(tokens)

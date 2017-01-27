@@ -1,6 +1,7 @@
 #------------------------Relevant Document Retrieval -------------------------
 #---------------------------Imports---------------------------------------
 import nltk
+import os
 from nltk import word_tokenize
 #----------------------------------Class for TF- IDF --------------------
 class tfidf:
@@ -66,8 +67,11 @@ print(q_tok)
 #---------------------------------------------Object of class-----------------------------------------------------
 obj = tfidf()
 
+path = os.path.dirname(os.path.realpath(__file__))
+path = path.replace("/src", "/corpora/")
+
 for i in range(0,doc_len):
-	file_content[i] = open("/home/amit/IdeaProjects/adam_qas/corpora/"+documents[i]).read()
+	file_content[i] = open(path+documents[i]).read()
 	file_content[i] = file_content[i].lower()
 	tokens[i] = nltk.word_tokenize(file_content[i])
 	obj.addDocument(titles[i],tokens[i])

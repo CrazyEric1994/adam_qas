@@ -62,13 +62,17 @@ key = []
 
 #--------------------Ask Question-----------------------------------------------------------------------------------
 
+path = os.path.dirname(os.path.realpath(__file__))
+path = path.replace("/src", "/corpora/")
+
+
 q = input("Ask :").strip()
 q_tok = nltk.word_tokenize(q)
 print(q_tok)
 
 obj = tfidf()
 for i in range(0,doc_len):
-	file_content[i] = open("/home/amit/IdeaProjects/adam_qas/corpora/"+documents[i]).read()
+	file_content[i] = open(path+documents[i]).read()
 	file_content[i] = file_content[i].lower()
 	tokens[i] = nltk.word_tokenize(file_content[i])
 	obj.addDocument(titles[i],tokens[i])

@@ -1,6 +1,7 @@
 import math
 from textblob import TextBlob as tb
 import nltk
+import os
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 
@@ -17,9 +18,10 @@ def tfidf(word, blob, bloblist):
     return tf(word, blob) * idf(word, bloblist)
 
 documents = []
-path = "home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/"
+path = os.path.dirname(os.path.realpath(__file__))
+path = path.replace("/src", "/corpora/")
 
-document1 = open("/home/amit/IdeaProjects/adam_qas/corpora/clustering_docs/a1.txt","r").read()
+document1 = open(path+"clustering_docs/a1.txt","r").read()
 document1 = document1.lower()
 doc1_tok = nltk.word_tokenize(document1)
 
