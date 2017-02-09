@@ -47,7 +47,7 @@ class TfIdf:
 
         return sims
 
-documents = ['barack.txt', 'elon.txt', 'linus.txt']
+documents = ['barack.txt', 'elon.txt', 'linus.txt']                 # Temporary Data Structures
 file_content = [1, 2, 3]
 tokens = file_content
 titles = ['Barack Obama', 'Elon Musk', 'Linus Torvalds']
@@ -57,12 +57,12 @@ filtered = []
 stemmed = []
 
 
-q = input("Q.").strip()
+q = input("Q.").strip()                                                # Accepting Question from user
 q = q.lower()
-q_tok = nltk.word_tokenize(q)
+q_tok = nltk.word_tokenize(q)                                          # Tokenizing it
 question_stemmed = []
 for item in q_tok:
-    question_stemmed.append(stemmer.stem(item))
+    question_stemmed.append(stemmer.stem(item))                        # Stemming it
 print(question_stemmed)
 
 obj = TfIdf()                                                           # Object of Class
