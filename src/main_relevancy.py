@@ -65,7 +65,7 @@ for item in q_tok:
     question_stemmed.append(stemmer.stem(item))
 print(question_stemmed)
 
-obj = TfIdf()
+obj = TfIdf()                                                           # Object of Class
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path.replace("/src",  "/corpora/")
