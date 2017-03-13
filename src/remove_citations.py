@@ -2,7 +2,7 @@ import os
 import re
 
 path = os.path.dirname(os.path.realpath(__file__))
-path = path.replace("/src",  "/corpora/elon.txt")
+path = path.replace("/src",  "/corpora/clustering_docs/a1.txt")
 
 pattern = '([[])\w+]'
 with open(path, 'r') as f:

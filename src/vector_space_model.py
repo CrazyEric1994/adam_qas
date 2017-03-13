@@ -47,10 +47,12 @@ class TfIdf:
 
         return sims
 
-documents = ['barack.txt', 'elon.txt', 'linus.txt']                 # Temporary Data Structures
-file_content = [1, 2, 3]
-tokens = file_content
-titles = ['Barack Obama', 'Elon Musk', 'Linus Torvalds']
+documents = ['p1.txt', 'p2.txt', 'p3.txt', 'p4.txt',
+             'p5.txt']                 # Temporary Data Structures
+file_content = [1, 2, 3, 4, 5 ]
+tokens = [1, 2, 3, 4, 5 ]
+
+titles = ['Barack Obama', 'Donald Trump', 'Narendra Modi', 'Sharad Pawar', 'Vladimir Putin']
 doc_len = len(documents)
 key = []
 filtered = []
@@ -68,7 +70,7 @@ print(question_stemmed)
 obj = TfIdf()                                                           # Object of Class
 
 path = os.path.dirname(os.path.realpath(__file__))
-path = path.replace("/src",  "/corpora/")
+path = path.replace("/src",  "/corpora/clustering_docs/")
 pattern = '([[])\w+]'
 
 for i in range(0, doc_len):
@@ -77,10 +79,10 @@ for i in range(0, doc_len):
     file_content[i] = re.sub(pattern, '', file_content[i])                          # remove citations
     tokens[i] = nltk.word_tokenize(file_content[i])                                 # tokenize the document
     filtered = [w for w in tokens[i] if not w in stopwords.words('english')]        # remove stopwords
-    # print(filtered)                                                                 # print tokens
+    # print('Remove Stopwords :', filtered)                                                               # print tokens
     for item in filtered:
         stemmed.append(stemmer.stem(item))
-    # print(stemmed)
+    # print('Stemmed :', stemmed)
     obj.addDocument(titles[i], stemmed)                                           # sent it to similarity checking
 
 print(obj.similarities(question_stemmed))
