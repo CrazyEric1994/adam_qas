@@ -17,7 +17,7 @@ documents = ["Human machine interface for lab abc computer applications",
 vectorizer = TfidfVectorizer(stop_words='english')
 X = vectorizer.fit_transform(documents)
 
-true_k = 2
+true_k = 3
 model = KMeans(n_clusters=true_k, init='k-means++', max_iter=100, n_init=1)
 model.fit(X)
 
