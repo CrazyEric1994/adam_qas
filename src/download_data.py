@@ -45,7 +45,7 @@ def clear_directory():                                                   # This 
 
 start_time = time.time()
 print('Now downloading data...')
-fetch()
+# fetch()
 end_time = time.time()
 print("Total time :", end_time - start_time)
 

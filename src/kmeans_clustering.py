@@ -1,6 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-from sklearn.metrics import adjusted_rand_score
+# from sklearn.metrics import adjusted_rand_score
 import time
 
 start_time = time.time()
