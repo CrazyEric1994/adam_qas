@@ -7,24 +7,30 @@ path = os.path.dirname(os.path.realpath(__file__))
 path = path.replace("/src",  "/corpora/data/")
 
 
-def fetch():                                                    # download data from wikiMedia
-    query = input("Enter search terms :")
+def fetch(query):                                                    # download data from wikiMedia
+    # query = input("Enter search terms :")
+    os.chdir(path)
+    # print("Query is", query)
     result_set = wikipedia.search(query)
+    # print("Result set", result_set)
+    files = [f for f in os.listdir(".") if f.endswith(".txt")]
+    for f in files:
+        os.remove(f)
     for term in range(len(result_set)):
-            page = wikipedia.page(result_set[term])
-            page_title = page.title
-            page_content = page.content
-            try:
-                os.chdir(path)
-                name = page_title+"."+"txt"
-                file = open(name, 'a')
-                file.write(page_content)
-                file.close()
-            except:
-                print("Error Occurred")
-                sys.exit(0)
+        page = wikipedia.page(result_set[term])
+        page_title = page.title
+        page_title = page_title.replace(" ", "_")
+        page_content = page.summary
+        try:
+            name = page_title+"."+"txt"
+            file = open(name, 'a')
+            file.write(page_content)
+            file.close()
+        except:
+            print("Error Occurred")
+            sys.exit(0)
 
-
+'''
 def isClear():                                                          # boolean function to verify
     flag = input("Wish to delete data files...<y/n>").strip()
     if flag == 'y':
@@ -41,22 +47,11 @@ def clear_directory():                                                   # This 
             os.remove(f)
     else:
         print("Files are kept!")
-
+# clear_directory()
 
 start_time = time.time()
 print('Now downloading data...')
 # fetch()
 end_time = time.time()
 print("Total time :", end_time - start_time)
-
-start_time = time.time()
-print('Now clearing directory data...')
-clear_directory()
-end_time = time.time()
-print("Total time :", end_time - start_time)
-
-
-
-
-
-
+'''

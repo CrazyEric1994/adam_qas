@@ -1,0 +1,3 @@
+Many techniques have been developed for the measurement of pressure and vacuum. Instruments used to measure and display pressure in an integral unit are called pressure gauges or vacuum gauges. A manometer is a good example as it uses a column of liquid to both measure and indicate pressure. Likewise the widely used Bourdon gauge is a mechanical device which both measures and indicates, and is probably the best known type of gauge.
+A vacuum gauge is an absolute pressure gauge used to measure the pressures lower than the ambient atmospheric pressure.
+Other methods of pressure measurement involve sensors which can transmit the pressure reading to a remote indicator or control system (telemetry).
