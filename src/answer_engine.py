@@ -6,9 +6,9 @@ from textblob import TextBlob
 import time
 from nltk.stem.snowball import SnowballStemmer
 import re
-import train_ans_type
-import vsm
-import download_data
+import src.train_ans_type
+from src.vsm import search
+from src.download_data import fetch
 # Q. when thomas cruise was born?
 # Q. Which country has hindi as an official language other than india?
 
@@ -22,8 +22,8 @@ class MiniQA:
         question = input("Q. ").strip()
         # question = question.lower()
 
-        ans_typ = train_ans_type.ans_type(question)
-        print('Answer type : ', ans_typ)
+        # ans_typ = train_ans_type.ans_type(question)
+        # print('Answer type : ', ans_typ)
 
         # q_tokens = nltk.word_tokenize(question)
         # print(q_tokens)
@@ -31,10 +31,10 @@ class MiniQA:
         question = question.replace("?", "")
         search_terms = [i for i in question.lower().split() if i not in self.stop_words_list]
 
-        download_data.fetch(' '.join(search_terms))
+        fetch(' '.join(search_terms))
         # print(search_terms)
 
-        vsm.search(question)
+        search(question)
 
 if __name__ == "__main__":
     start_time = time.time()
